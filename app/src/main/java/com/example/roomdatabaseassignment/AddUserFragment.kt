@@ -15,19 +15,19 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.roomdatabaseassignment.data.User
 import com.example.roomdatabaseassignment.data.UserViewModel
 
-class AddUserFragment : Fragment() {
+open class AddUserFragment : Fragment() {
 
     var context: AppCompatActivity? = null
 
     private lateinit var mUSerViewModel: UserViewModel
 
-    lateinit var firstName: EditText
-    lateinit var lastName: EditText
-    lateinit var userAge: EditText
+    private lateinit var firstName: EditText
+    private lateinit var lastName: EditText
+    private lateinit var userAge: EditText
 
-    lateinit var storeFirstName: String
-    lateinit var storeLastName: String
-    lateinit var storeAge: Editable
+    private lateinit var storeFirstName: String
+    private lateinit var storeLastName: String
+    private lateinit var storeAge: Editable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,7 @@ class AddUserFragment : Fragment() {
 
         context = activity as AppCompatActivity
 
-        var submitbtn = view.findViewById<Button>(R.id.addUser)
+        val submitBtn = view.findViewById<Button>(R.id.addUser)
 
         firstName = view.findViewById(R.id.userFirstName)
         lastName = view.findViewById(R.id.userLastName)
@@ -46,7 +46,7 @@ class AddUserFragment : Fragment() {
 
         mUSerViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
-        submitbtn.setOnClickListener {
+        submitBtn.setOnClickListener {
             insertDataToDatabase()
         }
         return view

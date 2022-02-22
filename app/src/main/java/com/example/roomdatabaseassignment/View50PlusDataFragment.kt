@@ -5,14 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.roomdatabaseassignment.adapter.UserAdapter
 import com.example.roomdatabaseassignment.data.User
 import com.example.roomdatabaseassignment.data.UserViewModel
@@ -28,7 +25,7 @@ class View50PlusDataFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         mBinding = FragmentView50PlusDataBinding.inflate(layoutInflater, container, false)
         mUSerViewModel = ViewModelProvider(this)[UserViewModel::class.java]
@@ -78,10 +75,10 @@ class View50PlusDataFragment : Fragment() {
         mBinding.filterView.layoutManager = LinearLayoutManager(requireContext())
         mBinding.filterView.adapter = adapter
 
-        mUSerViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        mUSerViewModel.readFilterData.observe(viewLifecycleOwner, Observer { user ->
+        mUSerViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        mUSerViewModel.readFilterData.observe(viewLifecycleOwner) { user ->
             adapter.setData(user)
-        })
+        }
     }
 }
 

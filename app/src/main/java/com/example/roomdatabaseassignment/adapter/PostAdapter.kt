@@ -2,10 +2,8 @@ package com.example.roomdatabaseassignment.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomdatabaseassignment.api.PostList
-import com.example.roomdatabaseassignment.data.User
 import com.example.roomdatabaseassignment.databinding.RvApiCallingBinding
 
 class PostAdapter(val postList: ArrayList<PostList> , val btnCardView: OnCardViewClick) :

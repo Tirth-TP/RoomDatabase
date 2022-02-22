@@ -17,7 +17,7 @@ open class MainFragment : Fragment() {
     private lateinit var mBinding : FragmentMainBinding
     var context: AppCompatActivity? = null
 
-    lateinit var mUSerViewModel: UserViewModel
+    private lateinit var mUSerViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,17 +3,12 @@ package com.example.roomdatabaseassignment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.roomdatabaseassignment.api.PostList
-import com.example.roomdatabaseassignment.databinding.FragmentPostBinding
 import com.example.roomdatabaseassignment.databinding.FragmentPostDetailsBinding
 import com.example.roomdatabaseassignment.util.POST_KEY
-import kotlinx.coroutines.currentCoroutineContext
 
 
 class PostDetailsFragment : Fragment() {
@@ -24,7 +19,7 @@ class PostDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         mBinding = FragmentPostDetailsBinding.inflate(layoutInflater, container, false)
 
@@ -35,13 +30,14 @@ class PostDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         post = arguments?.getParcelable(POST_KEY)
 
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         (activity as AppCompatActivity).supportActionBar?.title = post?.title
 
-        mBinding.postBody.setText(post?.body)
+        mBinding.postBody.text = post?.body
 
 
     }

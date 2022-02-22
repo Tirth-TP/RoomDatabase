@@ -1,7 +1,6 @@
 package com.example.roomdatabaseassignment.data
 
-import android.R
-import android.provider.Settings
+
 import androidx.lifecycle.LiveData
 import androidx.room.*
 

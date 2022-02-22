@@ -1,7 +1,6 @@
 package com.example.roomdatabaseassignment
 
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -20,16 +19,16 @@ class UpdateFragment : Fragment() {
 
     private var user: User? = null
 
-    lateinit var firstName: EditText
-    lateinit var lastName: EditText
-    lateinit var userAge: EditText
-    lateinit var btnUpdate: Button
+    private lateinit var firstName: EditText
+    private lateinit var lastName: EditText
+    private lateinit var userAge: EditText
+    private lateinit var btnUpdate: Button
 
     private lateinit var mUSerViewModel: UserViewModel
 
-    lateinit var updateFirstname: String
-    lateinit var updateLastname: String
-    var updateAge: Int = 0
+    private lateinit var updateFirstname: String
+    private lateinit var updateLastname: String
+    private var updateAge: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

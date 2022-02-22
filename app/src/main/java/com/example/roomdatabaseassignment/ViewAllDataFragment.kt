@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +17,7 @@ import com.example.roomdatabaseassignment.data.UserViewModel
 
 class ViewAllDataFragment : Fragment() {
 
-    lateinit var mUserViewModel: UserViewModel
+    private lateinit var mUserViewModel: UserViewModel
     var context: AppCompatActivity? = null
 
     private lateinit var mUSerViewModel: UserViewModel
@@ -68,10 +66,10 @@ class ViewAllDataFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
+        mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        mUserViewModel.readAllData.observe(viewLifecycleOwner) { user ->
             adapter.setData(user)
-        })
+        }
     }
 
     // Delete User
